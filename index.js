@@ -1,10 +1,12 @@
 import expresss from 'express';
 import mongoose from 'mongoose';
+import cors from 'cors';
 import UserModel from './models/user.js';
 
 mongoose.connect('mongodb+srv://mindx:mindx@test-demployment.gzmrvrg.mongodb.net/lesson9?retryWrites=true&w=majority');
 
 const app = expresss();
+app.use(cors())
 
 app.get('/users', async (req, res) => {
     const listUser = await UserModel.find({});
